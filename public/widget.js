@@ -31,6 +31,8 @@
   widget.style.width = '400px';
   widget.style.height = '600px';
   widget.style.display = 'none'; // Start hidden
+  widget.style.borderRadius = '12px';
+  widget.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.1)';
   
   // Get the base URL from the script src
   const scriptUrl = new URL(script.src);
@@ -45,8 +47,8 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: #0066FF;
     color: white;
@@ -55,8 +57,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    z-index: 1000;
   `;
 
   toggleBtn.onmouseover = () => {
