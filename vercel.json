@@ -1,9 +1,25 @@
 {
   "rewrites": [
-    { "source": "/widget/:websiteId", "destination": "/index.html" },
-    { "source": "/widget.js", "destination": "/widget.js" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite"
+  "headers": [
+    {
+      "source": "/widget.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ]
 }
