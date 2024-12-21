@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/widget/:websiteId", "destination": "/index.html" },
+    { "source": "/widget.js", "destination": "/widget.js" }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
